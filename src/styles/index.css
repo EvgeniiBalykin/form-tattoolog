@@ -1,0 +1,20 @@
+* {
+    font-family: 'Jost', Arial, sans-serif;
+    font-weight: 400;
+}
+
+:root{
+    --headingHeaight: 80px;
+
+}
+html, body, #root{
+    min-height: 100vh;
+}
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-height {
+    height: var(--headingHeaight)
+}

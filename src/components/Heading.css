@@ -1,0 +1,11 @@
+.header-logo {
+    object-fit: contain;
+    padding: 0 0.5rem;
+    margin: 0 0.5rem;
+    transition: .1s ease-in-out;
+}
+
+.header-logo:hover {
+    padding: 0.05rem 0.55rem;
+    transition: .1s ease-in-out;
+}
