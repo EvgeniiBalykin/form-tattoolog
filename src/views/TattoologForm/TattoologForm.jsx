@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import * as yup from "yup";
+import * as yup from "yup";
 import axios from "axios";
 import {
   Container,
@@ -17,19 +17,17 @@ import { Result } from "../../components/Result";
 import { useTranslation } from "react-i18next";
 import "yup-phone-lite";
 import { getAPIAddrPL } from "../../helpers/url";
-// import { useParams } from "react-router-dom";
 import { toBase64 } from "../../helpers/toBase64";
 
 const COUNTRIES = "https://tattoolog.de/tools/countries/?page_size=400";
 const CITIES = (country) =>
   `https://tattoolog.de/tools/cities/?country=${country}&page_size=1000`;
 
-export const ReserveForm = () => {
+export const TattologForm = () => {
   const { t } = useTranslation();
   const [isLoading, setIsLodading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  // const params = useParams();
   const [images, setImages] = useState([]);
   const [avatar, setAvatar] = useState([]);
   const [countries, setCountries] = useState([]);
@@ -44,19 +42,24 @@ export const ReserveForm = () => {
     axios.get(CITIES(selectedCountry)).then((res) => setCities(res.data));
   }, [selectedCountry]);
 
-  // const validationSchema = yup.object().shape({
-  //   desiredPlace: yup.string().required(t("form_validation.required")),
-  //   name: yup.string().required(t("form_validation.required")),
-  //   phone: yup
-  //     .string()
-  //     .phone([], t("form_validation.invalid_phone"))
-  //     .required(t("form_validation.required")),
-  //   link: yup.string().required(t("form_validation.required")),
-  //   place: yup.string().required(t("form_validation.required")),
-  //   terms: yup.boolean().oneOf([true], t("form_validation.required")),
-  // });
+  const validationSchema = yup.object().shape({
+    country: yup.string().required(t("form_validation.required")),
+    city: yup.string().required(t("form_validation.required")),
+    socialLink: yup.string().required(t("form_validation.required")),
+    firstName: yup
+      .string()
+      .phone([], t("form_validation.invalid_phone"))
+      .required(t("form_validation.required")),
+    lastName: yup.string().required(t("form_validation.required")),
+    phone: yup.string().required(t("form_validation.required")),
+    about: yup.string().required(t("form_validation.required")),
+    avatar: yup.string().required(t("form_validation.required")),
+    posts: yup.string().required(t("form_validation.required")),
+  });
+
   const initialValues = {
     country: "",
+    socialLink: "",
     city: "",
     firstName: "",
     lastName: "",
@@ -100,32 +103,31 @@ export const ReserveForm = () => {
     const data = {
       country: formData.country,
       city: formData.city,
-      firstName: formData.firstName,
-      lastName: formData.lastName,
+      first_name: formData.firstName,
+      last_name: formData.lastName,
       email: formData.email,
       phone: formData.phone,
       about: formData.about,
+      social_link: formData.socialLink,
       avatar: avatar.map((el) => {
         return el.base64;
-      }),
-      posts: images.map((el) => {
+      })[0],
+      images: images.map((el) => {
         return el.base64;
       }),
     };
 
-    console.log(data);
-
-    // axios
-    //   .post(`${getAPIAddrPL()}/api/v1/candidates/employees/`, data)
-    //   .then(() => {
-    //     setIsSuccess(true);
-    //   })
-    //   .catch(() => {
-    //     setIsError(true);
-    //   })
-    //   .finally(() => {
-    //     setIsLodading(false);
-    //   });
+    axios
+      .post(`${getAPIAddrPL()}/api/v1/candidates/employees/`, data)
+      .then(() => {
+        setIsSuccess(true);
+      })
+      .catch(() => {
+        setIsError(true);
+      })
+      .finally(() => {
+        setIsLodading(false);
+      });
   };
 
   return (
@@ -135,6 +137,7 @@ export const ReserveForm = () => {
           backgroundImage:
             "url(https://thumb.tildacdn.com/tild6662-3363-4466-b438-356662386230/-/format/webp/preillumination-seth.jpg)",
           position: "absolute",
+          backgroundSize: "cover",
           width: "100%",
           height: "100%",
         }}
@@ -155,7 +158,7 @@ export const ReserveForm = () => {
               <Card>
                 <Card.Body>
                   <Formik
-                    // validationSchema={validationSchema}
+                    validationSchema={validationSchema}
                     initialValues={initialValues}
                     onSubmit={submitForm}
                   >
@@ -234,6 +237,21 @@ export const ReserveForm = () => {
                               name="lastName"
                               type="text"
                               value={values.lastName}
+                              onChange={handleChange}
+                              isInvalid={
+                                !!errors.desiredPlace && touched.desiredPlace
+                              }
+                            />
+                            <Form.Control.Feedback type="invalid">
+                              {errors.desiredPlace}
+                            </Form.Control.Feedback>
+                          </Form.Group>
+                          <Form.Group>
+                            <Form.Label>Social link</Form.Label>
+                            <Form.Control
+                              name="socialLink"
+                              type="text"
+                              value={values.socialLink}
                               onChange={handleChange}
                               isInvalid={
                                 !!errors.desiredPlace && touched.desiredPlace
