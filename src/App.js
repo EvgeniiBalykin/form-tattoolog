@@ -4,11 +4,11 @@ import { ReserveFormLayout } from "./layouts/ReserveFormLayout/ReserveFormLayout
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/*" element={<ReserveFormLayout />} />
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/*" element={<ReserveFormLayout />} />
+        </Routes>
+      </BrowserRouter>
   );
 }
 
