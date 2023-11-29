@@ -6,7 +6,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/association/*" element={<ReserveFormLayout />} />
+        <Route path="/*" element={<ReserveFormLayout />} />
       </Routes>
     </BrowserRouter>
   );

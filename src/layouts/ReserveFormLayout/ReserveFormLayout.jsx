@@ -8,7 +8,7 @@ export const ReserveFormLayout = () => {
     <>
       <Heading showPartners={false} />
       <Routes>
-        <Route path="/:b64id" element={<TattologForm />} />
+        <Route path="/*" element={<TattologForm />} />
       </Routes>
     </>
   );
