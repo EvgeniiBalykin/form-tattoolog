@@ -2,7 +2,8 @@
   "form_validation": {
     "required": "Это поле обязательное!",
     "invalid_url": "Введите действительную ссылку!",
-    "invalid_phone": "Неверный номер телефона!"
+    "invalid_phone": "Неверный номер телефона!",
+    "min_one_work": "Добавьте минимум 1 работу"
   },
   "control_buttons": {
     "next": "Далее",

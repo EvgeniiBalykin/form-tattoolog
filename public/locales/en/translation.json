@@ -2,7 +2,8 @@
   "form_validation": {
     "required": "This field is required!",
     "invalid_url": "Please enter a valid URL!",
-    "invalid_phone": "Invalid phone number!"
+    "invalid_phone": "Invalid phone number!",
+    "min_one_work": "Attached min 1 work"
   },
   "control_buttons": {
     "next": "Next",
@@ -10,30 +11,30 @@
     "submit": "Submit"
   },
   "banner": {
-      "little_story": "A short story about you in",
-      "prize": "CHEYENNE SOL NOVA 2",
-      "conditions": "Complete a short survey, get a serial number, and try your luck to win CHEYENNE SOL NOVA 2"
+    "little_story": "A short story about you in",
+    "prize": "CHEYENNE SOL NOVA 2",
+    "conditions": "Complete a short survey, get a serial number, and try your luck to win CHEYENNE SOL NOVA 2"
   },
   "desires": {
-      "country": "*In which country would you like to work?",
-      "styles": "*Your favorite tattoo styles?",
-      "idol": "*Who among tattoo artists is your idol or who inspires you?",
-      "conditions": "*What are the ideal working conditions for you as a tattoo artist?",
-      "items": "*Which equipment/materials are leading in the industry for you?"
+    "country": "*In which country would you like to work?",
+    "styles": "*Your favorite tattoo styles?",
+    "idol": "*Who among tattoo artists is your idol or who inspires you?",
+    "conditions": "*What are the ideal working conditions for you as a tattoo artist?",
+    "items": "*Which equipment/materials are leading in the industry for you?"
   },
   "about": {
-      "name": "*Name or alias",
-      "phone": "*Phone",
-      "social_media_link": "*Link to your social media",
-      "place": "*Country and city of residence",
-      "want_world_tattoo": "I want to be part of the global tattoo industry",
-      "want_work": "I want to receive interesting job offers",
-      "terms": "*I consent to the processing of personal data"
+    "name": "*Name or alias",
+    "phone": "*Phone",
+    "social_media_link": "*Link to your social media",
+    "place": "*Country and city of residence",
+    "want_world_tattoo": "I want to be part of the global tattoo industry",
+    "want_work": "I want to receive interesting job offers",
+    "terms": "*I consent to the processing of personal data"
   },
   "messages": {
-      "success": "Application submitted!",
-      "success_msg": "Your participant number: {{id}}",
-      "error": "Error!",
-      "error_msg": "Something went wrong..."
+    "success": "Application submitted!",
+    "success_msg": "Your participant number: {{id}}",
+    "error": "Error!",
+    "error_msg": "Something went wrong..."
   }
 }
