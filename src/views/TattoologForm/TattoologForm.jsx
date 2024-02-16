@@ -101,6 +101,7 @@ export const TattologForm = () => {
       social_link: formData.socialLink,
       avatar: base64Avatar,
       images: base64Works.map((el) => el.base64),
+      conversion_link: window.location.href,
     };
 
     return axios
